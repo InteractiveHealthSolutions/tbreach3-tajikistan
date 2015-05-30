@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!-- Copyright(C) 2015 Interactive Health Solutions, Pvt. Ltd.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 3 of the License (GPLv3), or any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program; if not, write to the Interactive Health Solutions, info@ihsinformatics.com
+You can also access the license on the internet at the address: http://www.gnu.org/licenses/gpl-3.0.html
+
+Interactive Health Solutions, hereby disclaims all copyright interest in this program written by the contributors. -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 17, 2014 3:35:41 PM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+    <class name="org.irdresearch.tbreach2.shared.model.BaselineDetails" table="baselinedetails">
+        <id name="sputumOrderNo" type="java.lang.Integer">
+            <column name="SputumResultNo" />
+            <generator class="identity" />
+        </id>
+        <property name="chwId" type="java.lang.String">
+            <column name="HealthWorkerID" />
+        </property>
+        <property name="patientId" type="java.lang.String">
+            <column name="PatientID" />
+        </property>
+        <property name="treatmentInitiation" type="java.util.Date">
+            <column name="TreatmentInitiation" />
+        </property>
+        <property name="locationId" type="java.lang.String">
+            <column name="LocationID" />
+        </property>
+        <property name="baselineSputum" type="java.lang.String">
+            <column name="BaselineSputum" />
+        </property>
+        <property name="baselineChest" type="java.lang.String">
+            <column name="BaselineChest" />
+        </property>
+        <property name="otherXraySite" type="java.lang.String">
+            <column name="OtherXraySite" />
+        </property>
+        <property name="xrayResult" type="java.lang.String">
+            <column name="XrayResult" />
+        </property>
+        <property name="baselineGeneXpert" type="java.lang.String">
+            <column name="BaselineGeneXpert" />
+        </property>
+        <property name="geneXpertDrugSensitivity" type="java.lang.String">
+            <column name="DrugSensitivity" />
+        </property>
+        <property name="typePatient" type="java.lang.String">
+            <column name="TypePatient" />
+        </property>
+        <property name="patientCategory" type="java.lang.String">
+            <column name="PatientCategory" />
+        </property>
+        <property name="weight" type="java.lang.String">
+            <column name="weight" />
+        </property>
+        <property name="regimen" type="java.lang.String">
+            <column name="Regimen" />
+        </property>
+        <property name="fixedDose" type="java.lang.String">
+            <column name="FixedDose" />
+        </property>
+        <property name="strepto" type="java.lang.String">
+            <column name="Streptomycin" />
+        </property>
+        <property name="startTimeForm" type="java.util.Date">
+            <column name="StartTimeForm" />
+        </property>
+        <property name="endTimeForm" type="java.util.Date">
+            <column name="EndTimeForm" />
+        </property>
+    </class>
+</hibernate-mapping>

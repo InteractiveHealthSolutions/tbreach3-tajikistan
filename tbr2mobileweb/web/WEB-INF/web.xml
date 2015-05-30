@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright(C) 2015 Interactive Health Solutions, Pvt. Ltd.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 3 of the License (GPLv3), or any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program; if not, write to the Interactive Health Solutions, info@ihsinformatics.com
+You can also access the license on the internet at the address: http://www.gnu.org/licenses/gpl-3.0.html
+
+Interactive Health Solutions, hereby disclaims all copyright interest in this program written by the contributors. -->
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>tbr3mobileweb_tjk</display-name>
+  <welcome-file-list>
+    <welcome-file>EnterPID.jsp</welcome-file>
+    <welcome-file>registrationBook.jsp</welcome-file>
+    <welcome-file>tbrmobile.jsp</welcome-file>
+    <welcome-file>SputumResult.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>logoutServlet</display-name>
+    <servlet-name>logoutServlet</servlet-name>
+    <servlet-class>org.irdresearch.tbreach2.server.logoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logoutServlet</servlet-name>
+    <url-pattern>/logoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>sputumResult</display-name>
+    <servlet-name>sputumResult</servlet-name>
+    <servlet-class>org.irdresearch.tbreach2.server.sputumResult</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sputumResult</servlet-name>
+    <url-pattern>/sputumResult</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>checkingStatus</display-name>
+    <servlet-name>checkingStatus</servlet-name>
+    <servlet-class>org.irdresearch.tbreach2.server.checkingStatus</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>checkingStatus</servlet-name>
+    <url-pattern>/checkingStatus</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateScreeningServlet</display-name>
+    <servlet-name>UpdateScreeningServlet</servlet-name>
+    <servlet-class>org.irdresearch.tbreach2.server.UpdateScreeningServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateScreeningServlet</servlet-name>
+    <url-pattern>/UpdateScreeningServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminServletReminders</display-name>
+    <servlet-name>AdminServletReminders</servlet-name>
+    <servlet-class>org.irdresearch.tbreach2.server.AdminServletReminders</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminServletReminders</servlet-name>
+    <url-pattern>/AdminServletReminders</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WebEventHandlerServlet</display-name>
+    <servlet-name>WebEventHandlerServlet</servlet-name>
+    <servlet-class>org.irdresearch.tbreach2.server.WebEventHandler</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WebEventHandlerServlet</servlet-name>
+    <url-pattern>/WebEventHandlerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>editServlet</display-name>
+    <servlet-name>editServlet</servlet-name>
+    <servlet-class>org.irdresearch.tbreach2.server.editServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editServlet</servlet-name>
+    <url-pattern>/editServlet</url-pattern>
+  </servlet-mapping>
+</web-app>

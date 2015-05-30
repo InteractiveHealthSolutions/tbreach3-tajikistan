@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+                <class name="org.irdresearch.tbreach2.shared.model.PatientResponse" table="patient_response">
+                 	<id name="recordNum" column="record_num">
+                        <generator class="increment"/>
+                    </id>
+                   
+ 					<property name="cellNo" column="cell_no" length="50"/>
+ 					<property name="recieveDate" column="recieve_date" />
+ 					<property name="recieveTime" column="recieve_time" />
+                    <property name="responseText" column="response_text" />
+                    <property name="responseType" column="response_type"/>
+                   <!--  <property name="reminderId" column="reminder_id"/> -->
+                    <property name="reminderText" column="reminder_text"/>
+                    <property name="uniqueID" column="uniqueID"/> 
+					<many-to-one name="patientDetails" class="org.irdresearch.tbreach2.shared.model.PatientDetails" column="PID" lazy="false" fetch="join"/>
+               
+                </class>
+
+</hibernate-mapping>

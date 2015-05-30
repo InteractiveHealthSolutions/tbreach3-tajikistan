@@ -1,0 +1,10 @@
+
+
+# -------------------------------------EMAIL ENGINE PROPERTIES------------------------------------
+mail.transport.protocol=smtp
+mail.host=smtp.gmail.com
+mail.user.username=ird.tajikistan@gmail.com
+mail.user.password=tjkjkt123321
+mail.smtp.auth=true
+mail.smtp.port=465
+

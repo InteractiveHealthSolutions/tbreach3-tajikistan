@@ -1,0 +1,47 @@
+package test;
+
+import ird.xoutTB.emailer.exception.EmailException;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+import javax.mail.MessagingException;
+import org.irdresearch.tbreachtajikistan.utils.EmailEngine;
+
+public class test
+{
+	
+	public static void main(String[] args) {
+		
+		int a[] = new int[2];
+		int i = 0;
+	    
+		a[i] = 0;
+		a[i++] =1;
+		
+		System.out.println(a[0]);
+		System.out.println(a[1]);
+		
+	}
+
+	
+	public static void instantiateEmailer(){
+		Properties prop = new Properties();
+		InputStream input = null;
+	 
+		try {
+	 
+			input = new FileInputStream("emailer.properties");	 
+			// load a properties file
+			prop.load(input);
+			EmailEngine.instantiateEmailEngine(prop, "ird.tajikistan@gmail.com");
+	 
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}catch (EmailException e){
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 15, 2014 11:07:21 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+    <class name="org.irdresearch.tbreach2.shared.model.Surveys" table="surveys">
+        <id name="id" type="java.lang.Integer" access="field">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="pid" type="java.lang.String">
+            <column name="PID" />
+        </property>
+        <property name="satisfiedWithSystem" type="java.lang.String">
+            <column name="SATISFIEDWITHSYSTEM" />
+        </property>
+        <property name="unsatisfactoryAspectSystem" type="java.lang.String">
+            <column name="UNSATISFACTORYASPECTSYSTEM" />
+        </property>
+        <property name="systemImprovement" type="java.lang.String">
+            <column name="SYSTEMIMPROVEMENT" />
+        </property>
+        <property name="satisfiedWithSmsReminder" type="java.lang.String">
+            <column name="SATISFIEDWITHSMSREMINDER" />
+        </property>
+        <property name="unsatisfactoryAspectSmsReminder" type="java.lang.String">
+            <column name="UNSATISFACTORYASPECTSMSREMINDER" />
+        </property>
+        <property name="reminderAdditionalEffort" type="java.lang.String">
+            <column name="REMINDERADDITIONALEFFORT" />
+        </property>
+        <property name="reminderTreatmentCompliance" type="java.lang.String">
+            <column name="REMINDERTREATMENTCOMPLIANCE" />
+        </property>
+        <property name="satisfiedServiceHealthFacility" type="java.lang.String">
+            <column name="SATISFIEDSERVICEHEALTHFACILITY" />
+        </property>
+        <property name="satisfiedCareTbSpeaclist" type="java.lang.String">
+            <column name="SATISFIEDCARETBSPEACLIST" />
+        </property>
+        <property name="tbTreatmentSystem" type="java.lang.String">
+            <column name="TBTREATMENTSYSTEM" />
+        </property>
+        <property name="healthWorkerID" type="java.lang.String">
+            <column name="HEALTHWORKERID" />
+        </property>
+        <property name="startTimeForm" type="java.util.Date">
+            <column name="STARTTIMEFORM" />
+        </property>
+        <property name="endTimeForm" type="java.util.Date">
+            <column name="ENDTIMEFORM" />
+        </property>
+    </class>
+</hibernate-mapping>

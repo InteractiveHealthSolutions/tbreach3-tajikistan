@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 12, 2014 9:56:20 AM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+    <class name="org.irdresearch.tbreach2.shared.model.MonitoringResults" table="monitoringresults">
+        <id name="smearOrderNo" type="java.lang.Integer">
+            <column name="SmearOrderNo" />
+            <generator class="identity" />
+        </id>
+        <property name="patientId" type="java.lang.String">
+            <column name="PatientID" />
+        </property>
+        <property name="healthWorkerId" type="java.lang.String">
+            <column name="HealthWorkerID" />
+        </property>
+        <property name="dateofTreatment" type="java.util.Date">
+            <column name="DateTreatmentInitiation" />
+        </property>
+        <property name="baselineSmear" type="java.lang.String">
+            <column name="baselineSmear" />
+        </property>
+        <property name="smearResult" type="java.lang.String">
+            <column name="smearResult" />
+        </property>
+        <property name="currentMonth" type="int">
+            <column name="currentMonth" />
+        </property>
+        <property name="patientFeel" type="java.lang.String">
+            <column name="patientFeel" />
+        </property>
+        <property name="experienceSideEffects" type="java.lang.String">
+            <column name="experienceSideEffects" />
+        </property>
+        <property name="patientSideEffects" type="java.lang.String">
+            <column name="patientSideEffects" />
+        </property>
+	<property name="otherSideEffects" type="java.lang.String">
+            <column name="otherSideEffects" />
+        </property>
+        <property name="patientConsult" type="java.lang.String">
+            <column name="patientConsult" />
+        </property>
+        <property name="healthFacility" type="java.lang.String">
+            <column name="healthFacility" />
+        </property>
+        <property name="missMedication" type="java.lang.String">
+            <column name="missMedication" />
+        </property>
+        <property name="durationMissMedication" type="java.lang.String">
+            <column name="durationMissMedication" />
+        </property>
+        <property name="medicineWrappers" type="java.lang.String">
+            <column name="medicineWrappers" />
+        </property>
+        <property name="doseConsumption" type="java.lang.String">
+            <column name="doseConsumption" />
+        </property>
+        <property name="startTimeForm" type="java.util.Date">
+            <column name="startTimeForm" />
+        </property>
+        <property name="endTimeForm" type="java.util.Date">
+            <column name="endTimeForm" />
+        </property>
+    </class>
+</hibernate-mapping>

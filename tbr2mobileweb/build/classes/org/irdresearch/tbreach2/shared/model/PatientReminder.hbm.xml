@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+            <!DOCTYPE hibernate-mapping PUBLIC
+                "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+            <hibernate-mapping>
+                <class name="org.irdresearch.tbreach2.shared.model.PatientReminder" table="patient_reminder">
+                    <composite-id >
+                    <key-many-to-one name="patientDetails" class="org.irdresearch.tbreach2.shared.model.PatientDetails" column="p_id" lazy="false"/>
+                    <key-many-to-one name="reminder" class="org.irdresearch.tbreach2.shared.model.Reminder" column="reminder_id" lazy="false"/>
+                    </composite-id>
+                    <property name="timeHour" column="time_hour" />
+                    <property name="timeMinute" column="time_minute"/>
+                    <property name="timeSecond" column="time_second" />
+                   	<property name="iterations" column="iterations"/>
+                    <property name="gapInHours" column="gap"/>
+                    <property name="lastUpdated" column="last_updated"/>
+                    <property name="createdByUserId" column="created_by_user_id"/>
+                    <property name="createdByUserName" column="created_by_user_name"/>
+                    <property name="createdDate" column="created_date"/>
+                    <property name="lastEditedByUserId" column="last_edited_by_user_id" /> 
+                    <property name="lastEditedByUserName" column="last_edited_by_user_name" />                   
+                    <!--
+                    
+                     <set name="patient" table="patient_reminder" inverse="true">
+                    	<key column="reminder_id"/>
+                    	<many-to-many class="ird.xoutTB.db.entity.Patient" column="p_id"/>
+                    </set>
+                -->
+                </class>
+            </hibernate-mapping>

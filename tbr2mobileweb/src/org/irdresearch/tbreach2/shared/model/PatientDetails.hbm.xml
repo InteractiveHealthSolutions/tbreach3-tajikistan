@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!-- Copyright(C) 2015 Interactive Health Solutions, Pvt. Ltd.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 3 of the License (GPLv3), or any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program; if not, write to the Interactive Health Solutions, info@ihsinformatics.com
+You can also access the license on the internet at the address: http://www.gnu.org/licenses/gpl-3.0.html
+
+Interactive Health Solutions, hereby disclaims all copyright interest in this program written by the contributors. -->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 25, 2014 5:35:43 PM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+    <class name="org.irdresearch.tbreach2.shared.model.PatientDetails" table="patientdetails">
+        <id name="pid" type="java.lang.String">
+            <column name="PID" />
+            <generator class="assigned" />
+        </id>
+        <property name="addressHouse" type="java.lang.String">
+            <column name="ADDRESSHOUSE" />
+        </property>
+        <property name="addressStreet" type="java.lang.String">
+            <column name="ADDRESSSTREET" />
+        </property>
+        <property name="addressDistrict" type="java.lang.String">
+            <column name="ADDRESSDISTRICT" />
+        </property>
+        <property name="addressFlat" type="java.lang.String">
+            <column name="ADDRESSFLAT" />
+        </property>
+        <property name="gender" type="java.lang.String">
+            <column name="GENDER" />
+        </property>
+        <property name="firstName" type="java.lang.String">
+            <column name="FIRSTNAME" />
+        </property>
+        <property name="lastName" type="java.lang.String" access="field">
+            <column name="LASTNAME" />
+        </property>
+        <property name="dob" type="java.util.Date" access="field">
+            <column name="DOB" />
+        </property>
+        <property name="nominateVolunteer" type="java.lang.String">
+            <column name="NOMINATEVOLUNTEER" />
+        </property>
+        <property name="relationshipFamily" type="java.lang.String">
+            <column name="RELATIONSHIPFAMILY" />
+        </property>
+        <property name="maritalStatus" type="java.lang.String">
+            <column name="MARITALSTATUS" />
+        </property>
+        <property name="education" type="java.lang.String">
+            <column name="EDUCATION" />
+        </property>
+        <property name="incomeFamilyMember" type="java.lang.String">
+            <column name="INCOMEFAMILYMEMBER" />
+        </property>
+        <property name="homePhone" type="java.lang.String">
+            <column name="HOMEPHONE" />
+        </property>
+        <property name="phone1" type="java.lang.String">
+            <column name="PHONE1" />
+        </property>
+        <property name="phoneOwner1" type="java.lang.String">
+            <column name="PHONEOWNER1" />
+        </property>
+        <property name="phone2" type="java.lang.String">
+            <column name="PHONE2" />
+        </property>
+        <property name="phoneOwner2" type="java.lang.String">
+            <column name="PHONEOWNER2" />
+        </property>
+        <property name="startTreatment" type="java.util.Date">
+            <column name="STARTTREATMENT" />
+        </property>
+        <property name="healthWorkerID" type="java.lang.String">
+            <column name="HEALTHWORKERID" />
+        </property>
+        <property name="startTimeForm" type="java.util.Date">
+            <column name="STARTTIMEFORM" />
+        </property>
+        <property name="endTimeForm" type="java.util.Date">
+            <column name="ENDTIMEFORM" />
+        </property>
+        <property name="active" type="java.lang.String">
+            <column name="ACTIVE" />
+        </property>
+        <property name="inactiveDate" type="java.util.Date">
+            <column name="INACTIVEDATE" />
+        </property>
+    </class>
+</hibernate-mapping>

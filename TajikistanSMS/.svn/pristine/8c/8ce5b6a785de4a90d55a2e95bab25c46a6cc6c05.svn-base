@@ -1,0 +1,99 @@
+package org.irdresearch.tbreachtajikistan.sms;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/*import ird.xoutTB.context.ServiceContext;*/
+import org.irdresearch.tbreach2.shared.model.PatientDetails;
+import org.irdresearch.tbreach2.shared.model.Reminder;
+import org.irdresearch.tbreach2.shared.model.ReminderHistory;
+import org.irdresearch.tbreach2.shared.model.ReminderHistory.REMINDER_STATUS;
+import org.irdresearch.tbreachtajikistan.utils.LoggerUtil;
+/*import ird.xoutTB.reporting.ExceptionUtil;
+import ird.xoutTB.utils.xoutFiles;*/
+
+import org.quartz.Job;
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
+
+import org.apache.commons.lang.StringUtils;
+import org.irdresearch.smstarseel.context.TarseelContext;
+import org.irdresearch.smstarseel.context.TarseelServices;
+import org.irdresearch.smstarseel.data.OutboundMessage;
+import org.irdresearch.smstarseel.data.OutboundMessage.OutboundStatus;
+public class LoggerCheckJob implements Job {
+
+	@Override
+	public void execute(JobExecutionContext jctx) throws JobExecutionException {
+		
+		//for checking, reminder sent or not
+		OutboundMessage obm;
+		String uniqueID;
+		TarseelServices ts = TarseelContext.getServices();
+		List<ReminderHistory> reminderloggerstatus=new ArrayList<ReminderHistory>();
+		HibernateUtil util = new HibernateUtil();
+		/*ServiceContext sc=new ServiceContext();*/
+		try{
+			
+		reminderloggerstatus=util.getStatusByReferenceNumber();
+		
+		for(ReminderHistory rm:reminderloggerstatus){
+			if(rm.getReminderStatus().equals("LOGGED")&&rm.getUniqueID()!=null)
+			{	
+				uniqueID=rm.getUniqueID();
+				//System.out.println(uniqueID+"..........");
+				obm=ts.getSmsService().findOutboundMessageByReferenceNumber(uniqueID, true);
+				if(obm!=null){
+				//System.out.println(obm.getReferenceNumber()+"RAF"+obm.getStatus().toString());
+				if(!obm.getStatus().equals(OutboundStatus.PENDING) && (!obm.getStatus().equals(OutboundStatus.UNKNOWN)))
+				{
+					if(obm.getStatus().equals(OutboundStatus.SENT))
+					{	
+						rm.setStatusOfReminder(REMINDER_STATUS.SENT);
+						//System.out.println(rm.getReminderStatus()+"...............................................");
+						
+						
+							util.addReminderHistory(rm);
+							/*sc.commitTransaction();*/
+
+					}
+					else if(obm.getStatus().equals(OutboundStatus.FAILED))
+					{
+						rm.setStatusOfReminder(REMINDER_STATUS.NOT_SENT);
+						util.addReminderHistory(rm);
+						/*sc.commitTransaction();*/
+					}
+					
+					else if(obm.getStatus().equals(OutboundStatus.MISSED))
+					{
+						rm.setStatusOfReminder(REMINDER_STATUS.NOT_SENT);
+						util.addReminderHistory(rm);
+						/*sc.commitTransaction();*/
+					}
+				}
+				
+				}
+
+
+			}
+			
+		}
+			
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+/*			xoutFiles.UnsavedReminder("---------------------------------------------" +
+					"\nException message:" +e.getMessage()+
+					"\n" +
+					"\n---------------------------------------------------"
+			);*/
+			
+			
+		}finally{
+			ts.closeSession();
+			/*sc.closeSession();*/
+		}
+		
+
+}
+}

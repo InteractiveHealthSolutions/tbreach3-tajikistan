@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- Copyright(C) 2015 Interactive Health Solutions, Pvt. Ltd.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 3 of the License (GPLv3), or any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program; if not, write to the Interactive Health Solutions, info@ihsinformatics.com
+You can also access the license on the internet at the address: http://www.gnu.org/licenses/gpl-3.0.html
+
+Interactive Health Solutions, hereby disclaims all copyright interest in this program written by the contributors. -->
+
+            <!DOCTYPE hibernate-mapping PUBLIC
+                "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+            <hibernate-mapping>
+                <class name="org.irdresearch.tbreach2.shared.model.Reminder" table="reminder">
+                    <id name="reminderId" column="reminder_id">
+                        <generator class="increment"/>
+                    </id>
+
+                    <property name="name" column="name" length="50"/>
+                    <property name="description" column="description"/>
+                    <property name="category" column="category" /><!--
+                    <property name="text" column="text"/>
+                    --><!--<property name="iterations" column="iterations"/>
+                    <property name="startTime" column="start_time"/>
+                    <property name="endTime" column="end_time"/>
+                    <property name="gap" column="gap"/>
+                    --><property name="lastUpdated" column="last_updated"/>
+                    <property name="createdByUserId" column="created_by_user_id"/>
+                    <property name="createdByUserName" column="created_by_user_name"/>
+                    <property name="createdDate" column="created_date"/>
+                    <property name="lastEditedByUserId" column="last_edited_by_user_id" /> 
+                    <property name="lastEditedByUserName" column="last_edited_by_user_name" />                      
+                    <set name="reminderText" table="reminder_text" inverse="true" lazy="false" fetch="subselect">
+                    	<key column="reminder_id"/>
+                    	<one-to-many class="org.irdresearch.tbreach2.shared.model.ReminderText"/>
+                    </set><!--
+                    
+                     <set name="patient" table="patient_reminder" inverse="true">
+                    	<key column="reminder_id"/>
+                    	<many-to-many class="ird.xoutTB.db.entity.Patient" column="p_id"/>
+                    </set>
+                --></class>
+                
+
+            </hibernate-mapping>

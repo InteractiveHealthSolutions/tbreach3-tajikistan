@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- Copyright(C) 2015 Interactive Health Solutions, Pvt. Ltd.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 3 of the License (GPLv3), or any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program; if not, write to the Interactive Health Solutions, info@ihsinformatics.com
+You can also access the license on the internet at the address: http://www.gnu.org/licenses/gpl-3.0.html
+
+Interactive Health Solutions, hereby disclaims all copyright interest in this program written by the contributors. -->
+
+            <!DOCTYPE hibernate-mapping PUBLIC
+                "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+            <hibernate-mapping>
+                <class name="org.irdresearch.tbreach2.shared.model.ReminderHistory" table="reminder_history">
+                	<id name="recordNum" column="record_num">
+                        <generator class="increment"/>
+                    </id>
+                    	<property name="cellNo" column="cell_no" length="20"/>
+                    	<property name="sentDate" column="sent_date" />
+                        <property name="sentTime" column="sent_time" />
+                    	<property name="reminderNumForTheDay" column="reminder_num_for_the_day"/>
+                    	<property name="reminderStatus" column="reminder_status" />
+                    	<property name="reminderText" column="reminder_text" />
+                    	<property name="uniqueID" column="uniqueID" />
+                    	<many-to-one name="reminder" class="org.irdresearch.tbreach2.shared.model.Reminder" 
+                    	column="reminder_id" lazy="false" />
+                    	<!-- <many-to-one name="patient" class="ird.xoutTB.db.entity.Patient" 
+                    	column="p_id" lazy="false"/>  -->
+                    	<many-to-one name="patientDetails" class="org.irdresearch.tbreach2.shared.model.PatientDetails" column="PID" lazy="false" fetch="join"/>
+                    	
+                    	
+                </class>
+
+            </hibernate-mapping>

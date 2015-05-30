@@ -1,0 +1,41 @@
+package org.irdresearch.tbreachtajikistan.sms;
+
+import org.irdresearch.tbreachtajikistan.utils.LoggerUtil;
+import org.irdresearch.tbreachtajikistan.utils.Utils;
+
+
+import java.text.ParseException;
+
+import org.quartz.Job;
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
+import org.quartz.SchedulerException;
+
+public class RescheduleRemindersJob implements Job{
+
+	static void reScheduleReminders() throws ParseException{
+		try
+		{
+			ReminderSystem.rescheduleReminders();
+		}
+		catch (SchedulerException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void execute(JobExecutionContext jctx) throws JobExecutionException {
+		try {
+			LoggerUtil.logIt(Utils.getJVMInfo());
+		//	LoggerUtil.logIt(Utils.getSMSServerInfo(ReminderSystem.getServer()));
+			LoggerUtil.logIt("\n.....RESCHEDULING REMINDERS .....");
+			
+			reScheduleReminders();
+		} catch (Exception e) {
+			//LoggerUtil.logIt("An error occurred while rescheduling reminders. \nstack trace is: "+ExceptionUtil.getStackTrace(e));
+			//ReminderSystem.emailErrorReportToAdmin("Error occurred while rescheduling reminders", "An error occurred while rescheduling reminders. \nError message is: "+e.getMessage());
+		}
+	}
+}
